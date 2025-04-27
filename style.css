@@ -1,0 +1,222 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #6dd5ed, #2193b0); /* Gradient background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  overflow: hidden; 
+}
+
+
+.bg-circles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1; 
+}
+
+.bg-circles div {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: moveCircles 8s infinite alternate;
+}
+
+.bg-circles div:nth-child(1) {
+  width: 60px;
+  height: 60px;
+  background-color: #f7b733;
+  top: 15%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.bg-circles div:nth-child(2) {
+  width: 80px;
+  height: 80px;
+  background-color: #fc4a1a;
+  top: 70%;
+  left: 80%;
+  animation-delay: 2s;
+}
+
+.bg-circles div:nth-child(3) {
+  width: 40px;
+  height: 40px;
+  background-color: #4568dc;
+  top: 40%;
+  left: 30%;
+  animation-delay: 4s;
+}
+
+.bg-circles div:nth-child(4) {
+  width: 70px;
+  height: 70px;
+  background-color: #00b09b;
+  top: 85%;
+  left: 5%;
+  animation-delay: 6s;
+}
+
+@keyframes moveCircles {
+  0% {
+      transform: translateY(0) scale(1);
+  }
+  100% {
+      transform: translateY(-20px) scale(1.1);
+  }
+}
+
+.quiz-container {
+  background-color: #fff;
+  border-radius: 15px; /* More rounded corners */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* More pronounced shadow */
+  width: 450px; /* Slightly wider */
+  overflow: hidden;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.quiz-header {
+  background-color: #f9f9f9; /* Light gray header */
+  padding: 25px; /* More padding */
+  text-align: center;
+  border-bottom: 2px solid #eee; /* Thicker border */
+}
+
+.quiz-header h2 {
+  color: #333; /* Darker question text */
+  margin-bottom: 15px;
+}
+
+.timer, .score {
+  margin-top: 12px;
+  font-size: 1em;
+  color: #777;
+  font-weight: bold; /* Make timer and score bolder */
+}
+
+.timer.pulse {
+  animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+  0% {
+      transform: scale(1);
+  }
+  100% {
+      transform: scale(1.1);
+  }
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  border-bottom: 1px solid #eee;
+  padding: 18px 25px; /* More padding in list items */
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+ul li:last-child {
+  border-bottom: none;
+}
+
+ul li label {
+  cursor: pointer;
+  display: block;
+  padding-left: 35px; /* More space for radio button */
+  color: #555; /* Darker answer text */
+}
+
+ul li input[type="radio"] {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+button {
+  background: linear-gradient(to right, #00b09b, #96c93d); /* Gradient button */
+  color: white;
+  border: none;
+  display: block;
+  width: 100%;
+  padding: 18px; /* More padding for the button */
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+button:hover {
+  transform: translateY(-2px); /* Slight lift on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.results-container {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  padding: 30px; /* More padding in results */
+  text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.results-container h2 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.results-container p {
+  font-size: 1.1em;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.results-container button {
+  background: linear-gradient(to right, #6441A5, #2A0845); /* Different gradient for restart */
+  padding: 15px 25px;
+  border-radius: 8px;
+}
+
+.results-container.hidden {
+  display: none;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+ul li:hover {
+  background-color: #f0f0f0; /* Slightly darker hover */
+}
+
+.correct {
+  background-color: #c3e6cb !important; /* Lighter green */
+  color: #155724 !important;
+  font-weight: bold;
+}
+
+.incorrect {
+  background-color: #f5c6cb !important; /* Lighter red */
+  color: #721c24 !important;
+  font-weight: bold;
+}
